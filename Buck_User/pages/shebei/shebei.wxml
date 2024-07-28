@@ -1,0 +1,39 @@
+<van-cell-group>
+  <view class="custom-view" style="position: relative; left: 0rpx; top: 22rpx">
+    <view class="wendu">
+      <van-row style="text-align:center;" >
+        <van-col span="8">已配对设备</van-col>
+        <van-col span="8">在线设备</van-col>
+        <van-col span="8">连线设备</van-col>
+      </van-row>
+    </view>
+    <view class="wendu">
+      <van-row style="text-align:center;" >
+        <van-col span="8" style="position: relative; left: 0rpx; top: -24rpx">{{peidui}} 个</van-col>
+        <van-col span="8" style="position: relative; left: 0rpx; top: -24rpx">{{connect}} 个</van-col>
+        <van-col span="8" style="position: relative; left: 0rpx; top: -24rpx">{{disconnect}} 个</van-col>
+      </van-row>
+    </view>
+  </view>
+</van-cell-group>
+
+<block wx:if="{{goodslist.length > 0}}">
+  <block wx:key="index" wx:for="{{goodslist}}">
+    <!-- 这里是商品列表 -->
+    <view class='way_list' bindtap="searchdetials" data-orderid="{{item.OrderID}}" style="position: relative; left: 2rpx; top: 40rpx; width: 750rpx; height: 136rpx; display: flex; box-sizing: border-box">
+      <!-- 商品图片 -->
+      <image class='good_image' src="{{item.imageUrl}}" style="position: relative; left: 48rpx; top: 0rpx"></image>
+      <!-- 商品名字 -->
+      <text class='good_name' style="position: relative; left: 64rpx; top: -16rpx">{{item.name}}</text>
+      <!-- 商品状态 -->
+      <text class='good_status' style="position: relative; left: 8rpx; top: 32rpx">{{item.status}}</text>
+    </view>
+  </block>
+</block>
+
+<block wx:else>
+  <view>暂无商品信息</view>
+</block>
+
+
+
